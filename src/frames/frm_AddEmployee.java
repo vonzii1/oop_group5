@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -193,6 +195,8 @@ public class frm_AddEmployee extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        JOptionPane.showMessageDialog(this, "Employee successfully added!");
+        
         new frm_EmployeeRecords().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed

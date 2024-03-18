@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -542,6 +544,8 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField22ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      JOptionPane.showMessageDialog(this, "Payroll rejected!"); 
+        
        new frm_ApprovalCenter().setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -552,6 +556,8 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       JOptionPane.showMessageDialog(this, "Payroll approved!");
+       
        new frm_ApprovalCenter().setVisible(true);
        this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed

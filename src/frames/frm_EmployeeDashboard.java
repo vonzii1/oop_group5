@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -99,6 +101,8 @@ public class frm_EmployeeDashboard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showConfirmDialog(this, "Are you sure you want to logout?", null, 1);
+        
         new frm_RoleLogin().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
