@@ -4,6 +4,7 @@
  */
 package frames;
 
+
 import javax.swing.JOptionPane;
 
 /**
@@ -455,6 +456,8 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+   
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
       
     }//GEN-LAST:event_jTextField1ActionPerformed
@@ -544,7 +547,8 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField22ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-      JOptionPane.showMessageDialog(this, "Payroll rejected!"); 
+
+       JOptionPane.showMessageDialog(this, "Payroll rejected!"); 
         
        new frm_ApprovalCenter().setVisible(true);
        this.dispose();
@@ -556,6 +560,7 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
        JOptionPane.showMessageDialog(this, "Payroll approved!");
        
        new frm_ApprovalCenter().setVisible(true);
@@ -656,4 +661,6 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+    
 }

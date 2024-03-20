@@ -4,9 +4,12 @@
  */
 package frames;
 
+import classes.AttendanceController;
 import javax.swing.JOptionPane;
 
 public class frm_EmployeeAttendance extends javax.swing.JFrame {
+    
+    private AttendanceController attendanceController;
 
     
     public frm_EmployeeAttendance() {
@@ -158,8 +161,19 @@ public class frm_EmployeeAttendance extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        JOptionPane.showMessageDialog(this, "Overtime requested!");
-        
+        String overtimeHours = jFormattedTextField1.getText(); // Number of hours
+        String overtimeStart = jFormattedTextField6.getText(); // Overtime start time
+        String overtimeEnd = jFormattedTextField7.getText(); // Overtime end time
+        String reason = jTextField1.getText(); // Reason for overtime
+        Boolean success = null;
+        attendanceController.applyOvertime(overtimeHours, overtimeStart, overtimeEnd, reason);
+
+    if (success) {
+        JOptionPane.showMessageDialog(this, "Overtime request submitted successfully!");
+        // Optionally reset the form or navigate away
+    } else {
+        JOptionPane.showMessageDialog(this, "Failed to submit overtime request. Please try again.");
+    }
         new frm_EmployeeDashboard().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -211,8 +225,8 @@ public class frm_EmployeeAttendance extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
+    public javax.swing.JButton jButton3;
+    public javax.swing.JButton jButton5;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JFormattedTextField jFormattedTextField3;
@@ -233,4 +247,9 @@ public class frm_EmployeeAttendance extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    private boolean applyOvertime(String overtimeHours, String overtimeStart, String overtimeEnd, String reason) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+                  
 }

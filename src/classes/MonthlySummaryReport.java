@@ -4,8 +4,6 @@
  */
 package classes;
 
-import static classes.Earning.calculateGrossIncome;
-
 /**
  *
  * @author User
@@ -19,7 +17,7 @@ public class MonthlySummaryReport {
     public double dailyRate;
     public int daysWorked;
     public double overtimePay;
-    public double grossIncome = calculateGrossIncome( dailyRate, daysWorked, overtimePay);
+    public double grossIncome;
     public int sssNumber;
     public double sssContribution;
     public int philhealthNumber;
@@ -31,6 +29,7 @@ public class MonthlySummaryReport {
     private Iterable<Employee> employeeList;
 
     public MonthlySummaryReport(int emp_ID, String emp_FullName, String position, String department, double dailyRate, int daysWorked, double overtimePay, int sssNumber, double sssContribution, int philhealthNumber, int philhealthContribution, int pagibigNumber, int pagibigContribution, int tinNumber, int withholdingContribution) {
+        this.grossIncome = calculateGrossIncome( dailyRate, daysWorked, overtimePay);
         this.emp_ID = emp_ID;
         this.emp_FullName = emp_FullName;
         this.position = position;
@@ -57,12 +56,17 @@ public class MonthlySummaryReport {
     }
     
     public void generatePayrollReport() {
-    System.out.println("Payroll Report:");
-    for (Employee employee : employeeList) {
-        System.out.println(employee.getEmp_ID() + " - " + employee.getFullName());
-    }
+        System.out.println("Payroll Report:");
+            for (Employee employee : employeeList) {
+                System.out.println(employee.getEmp_ID() + " - " + employee.getFullName());
+        }
     
 }
+
+    public static double calculateGrossIncome(double dailyRate, int daysWorked, double overtimePay){
+        double grossIncome = ((dailyRate * daysWorked) + overtimePay);
+        return grossIncome;
+    }
     
 }
     
