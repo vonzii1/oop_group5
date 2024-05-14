@@ -10,9 +10,7 @@ package frames;
  */
 public class frm_ApprovalCenterOvertimeRequest extends javax.swing.JFrame {
 
-    /**
-     * Creates new form frm_ApprovalStatusOvertimeRequest
-     */
+     
     public frm_ApprovalCenterOvertimeRequest() {
         initComponents();
     }

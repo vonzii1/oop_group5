@@ -4,12 +4,470 @@
  */
 package frames;
 
+import javax.accessibility.AccessibleContext;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRootPane;
+import javax.swing.JTextField;
+
 /**
  *
  * @author User
  */
 public class frm_AdminPayslip extends javax.swing.JFrame {
 
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JFormattedTextField getjFormattedTextField10() {
+        return jFormattedTextField10;
+    }
+
+    public void setjFormattedTextField10(JFormattedTextField jFormattedTextField10) {
+        this.jFormattedTextField10 = jFormattedTextField10;
+    }
+
+    public JFormattedTextField getjFormattedTextField11() {
+        return jFormattedTextField11;
+    }
+
+    public void setjFormattedTextField11(JFormattedTextField jFormattedTextField11) {
+        this.jFormattedTextField11 = jFormattedTextField11;
+    }
+
+    public JFormattedTextField getjFormattedTextField12() {
+        return jFormattedTextField12;
+    }
+
+    public void setjFormattedTextField12(JFormattedTextField jFormattedTextField12) {
+        this.jFormattedTextField12 = jFormattedTextField12;
+    }
+
+    public JFormattedTextField getjFormattedTextField13() {
+        return jFormattedTextField13;
+    }
+
+    public void setjFormattedTextField13(JFormattedTextField jFormattedTextField13) {
+        this.jFormattedTextField13 = jFormattedTextField13;
+    }
+
+    public JFormattedTextField getjFormattedTextField14() {
+        return jFormattedTextField14;
+    }
+
+    public void setjFormattedTextField14(JFormattedTextField jFormattedTextField14) {
+        this.jFormattedTextField14 = jFormattedTextField14;
+    }
+
+    public JFormattedTextField getjFormattedTextField15() {
+        return jFormattedTextField15;
+    }
+
+    public void setjFormattedTextField15(JFormattedTextField jFormattedTextField15) {
+        this.jFormattedTextField15 = jFormattedTextField15;
+    }
+
+    public JFormattedTextField getjFormattedTextField16() {
+        return jFormattedTextField16;
+    }
+
+    public void setjFormattedTextField16(JFormattedTextField jFormattedTextField16) {
+        this.jFormattedTextField16 = jFormattedTextField16;
+    }
+
+    public JFormattedTextField getjFormattedTextField17() {
+        return jFormattedTextField17;
+    }
+
+    public void setjFormattedTextField17(JFormattedTextField jFormattedTextField17) {
+        this.jFormattedTextField17 = jFormattedTextField17;
+    }
+
+    public JFormattedTextField getjFormattedTextField18() {
+        return jFormattedTextField18;
+    }
+
+    public void setjFormattedTextField18(JFormattedTextField jFormattedTextField18) {
+        this.jFormattedTextField18 = jFormattedTextField18;
+    }
+
+    public JFormattedTextField getjFormattedTextField19() {
+        return jFormattedTextField19;
+    }
+
+    public void setjFormattedTextField19(JFormattedTextField jFormattedTextField19) {
+        this.jFormattedTextField19 = jFormattedTextField19;
+    }
+
+    public JFormattedTextField getjFormattedTextField20() {
+        return jFormattedTextField20;
+    }
+
+    public void setjFormattedTextField20(JFormattedTextField jFormattedTextField20) {
+        this.jFormattedTextField20 = jFormattedTextField20;
+    }
+
+    public JFormattedTextField getjFormattedTextField21() {
+        return jFormattedTextField21;
+    }
+
+    public void setjFormattedTextField21(JFormattedTextField jFormattedTextField21) {
+        this.jFormattedTextField21 = jFormattedTextField21;
+    }
+
+    public JFormattedTextField getjFormattedTextField22() {
+        return jFormattedTextField22;
+    }
+
+    public void setjFormattedTextField22(JFormattedTextField jFormattedTextField22) {
+        this.jFormattedTextField22 = jFormattedTextField22;
+    }
+
+    public JFormattedTextField getjFormattedTextField23() {
+        return jFormattedTextField23;
+    }
+
+    public void setjFormattedTextField23(JFormattedTextField jFormattedTextField23) {
+        this.jFormattedTextField23 = jFormattedTextField23;
+    }
+
+    public JFormattedTextField getjFormattedTextField24() {
+        return jFormattedTextField24;
+    }
+
+    public void setjFormattedTextField24(JFormattedTextField jFormattedTextField24) {
+        this.jFormattedTextField24 = jFormattedTextField24;
+    }
+
+    public JFormattedTextField getjFormattedTextField25() {
+        return jFormattedTextField25;
+    }
+
+    public void setjFormattedTextField25(JFormattedTextField jFormattedTextField25) {
+        this.jFormattedTextField25 = jFormattedTextField25;
+    }
+
+    public JFormattedTextField getjFormattedTextField26() {
+        return jFormattedTextField26;
+    }
+
+    public void setjFormattedTextField26(JFormattedTextField jFormattedTextField26) {
+        this.jFormattedTextField26 = jFormattedTextField26;
+    }
+
+    public JFormattedTextField getjFormattedTextField27() {
+        return jFormattedTextField27;
+    }
+
+    public void setjFormattedTextField27(JFormattedTextField jFormattedTextField27) {
+        this.jFormattedTextField27 = jFormattedTextField27;
+    }
+
+    public JFormattedTextField getjFormattedTextField28() {
+        return jFormattedTextField28;
+    }
+
+    public void setjFormattedTextField28(JFormattedTextField jFormattedTextField28) {
+        this.jFormattedTextField28 = jFormattedTextField28;
+    }
+
+    public JFormattedTextField getjFormattedTextField3() {
+        return jFormattedTextField3;
+    }
+
+    public void setjFormattedTextField3(JFormattedTextField jFormattedTextField3) {
+        this.jFormattedTextField3 = jFormattedTextField3;
+    }
+
+    public JFormattedTextField getjFormattedTextField7() {
+        return jFormattedTextField7;
+    }
+
+    public void setjFormattedTextField7(JFormattedTextField jFormattedTextField7) {
+        this.jFormattedTextField7 = jFormattedTextField7;
+    }
+
+    public JFormattedTextField getjFormattedTextField8() {
+        return jFormattedTextField8;
+    }
+
+    public void setjFormattedTextField8(JFormattedTextField jFormattedTextField8) {
+        this.jFormattedTextField8 = jFormattedTextField8;
+    }
+
+    public JFormattedTextField getjFormattedTextField9() {
+        return jFormattedTextField9;
+    }
+
+    public void setjFormattedTextField9(JFormattedTextField jFormattedTextField9) {
+        this.jFormattedTextField9 = jFormattedTextField9;
+    }
+
+    public JLabel getjLabel10() {
+        return jLabel10;
+    }
+
+    public void setjLabel10(JLabel jLabel10) {
+        this.jLabel10 = jLabel10;
+    }
+
+    public JLabel getjLabel11() {
+        return jLabel11;
+    }
+
+    public void setjLabel11(JLabel jLabel11) {
+        this.jLabel11 = jLabel11;
+    }
+
+    public JLabel getjLabel5() {
+        return jLabel5;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.jLabel5 = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JLabel getjLabel8() {
+        return jLabel8;
+    }
+
+    public void setjLabel8(JLabel jLabel8) {
+        this.jLabel8 = jLabel8;
+    }
+
+    public JLabel getjLabel9() {
+        return jLabel9;
+    }
+
+    public void setjLabel9(JLabel jLabel9) {
+        this.jLabel9 = jLabel9;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JTextField getjTextField1() {
+        return jTextField1;
+    }
+
+    public void setjTextField1(JTextField jTextField1) {
+        this.jTextField1 = jTextField1;
+    }
+
+    public JTextField getjTextField10() {
+        return jTextField10;
+    }
+
+    public void setjTextField10(JTextField jTextField10) {
+        this.jTextField10 = jTextField10;
+    }
+
+    public JTextField getjTextField11() {
+        return jTextField11;
+    }
+
+    public void setjTextField11(JTextField jTextField11) {
+        this.jTextField11 = jTextField11;
+    }
+
+    public JTextField getjTextField12() {
+        return jTextField12;
+    }
+
+    public void setjTextField12(JTextField jTextField12) {
+        this.jTextField12 = jTextField12;
+    }
+
+    public JTextField getjTextField13() {
+        return jTextField13;
+    }
+
+    public void setjTextField13(JTextField jTextField13) {
+        this.jTextField13 = jTextField13;
+    }
+
+    public JTextField getjTextField14() {
+        return jTextField14;
+    }
+
+    public void setjTextField14(JTextField jTextField14) {
+        this.jTextField14 = jTextField14;
+    }
+
+    public JTextField getjTextField15() {
+        return jTextField15;
+    }
+
+    public void setjTextField15(JTextField jTextField15) {
+        this.jTextField15 = jTextField15;
+    }
+
+    public JTextField getjTextField16() {
+        return jTextField16;
+    }
+
+    public void setjTextField16(JTextField jTextField16) {
+        this.jTextField16 = jTextField16;
+    }
+
+    public JTextField getjTextField17() {
+        return jTextField17;
+    }
+
+    public void setjTextField17(JTextField jTextField17) {
+        this.jTextField17 = jTextField17;
+    }
+
+    public JTextField getjTextField18() {
+        return jTextField18;
+    }
+
+    public void setjTextField18(JTextField jTextField18) {
+        this.jTextField18 = jTextField18;
+    }
+
+    public JTextField getjTextField19() {
+        return jTextField19;
+    }
+
+    public void setjTextField19(JTextField jTextField19) {
+        this.jTextField19 = jTextField19;
+    }
+
+    public JTextField getjTextField2() {
+        return jTextField2;
+    }
+
+    public void setjTextField2(JTextField jTextField2) {
+        this.jTextField2 = jTextField2;
+    }
+
+    public JTextField getjTextField20() {
+        return jTextField20;
+    }
+
+    public void setjTextField20(JTextField jTextField20) {
+        this.jTextField20 = jTextField20;
+    }
+
+    public JTextField getjTextField21() {
+        return jTextField21;
+    }
+
+    public void setjTextField21(JTextField jTextField21) {
+        this.jTextField21 = jTextField21;
+    }
+
+    public JTextField getjTextField22() {
+        return jTextField22;
+    }
+
+    public void setjTextField22(JTextField jTextField22) {
+        this.jTextField22 = jTextField22;
+    }
+
+    public JTextField getjTextField3() {
+        return jTextField3;
+    }
+
+    public void setjTextField3(JTextField jTextField3) {
+        this.jTextField3 = jTextField3;
+    }
+
+    public JTextField getjTextField4() {
+        return jTextField4;
+    }
+
+    public void setjTextField4(JTextField jTextField4) {
+        this.jTextField4 = jTextField4;
+    }
+
+    public JTextField getjTextField5() {
+        return jTextField5;
+    }
+
+    public void setjTextField5(JTextField jTextField5) {
+        this.jTextField5 = jTextField5;
+    }
+
+    public JTextField getjTextField6() {
+        return jTextField6;
+    }
+
+    public void setjTextField6(JTextField jTextField6) {
+        this.jTextField6 = jTextField6;
+    }
+
+    public JTextField getjTextField7() {
+        return jTextField7;
+    }
+
+    public void setjTextField7(JTextField jTextField7) {
+        this.jTextField7 = jTextField7;
+    }
+
+    public JTextField getjTextField8() {
+        return jTextField8;
+    }
+
+    public void setjTextField8(JTextField jTextField8) {
+        this.jTextField8 = jTextField8;
+    }
+
+    public JTextField getjTextField9() {
+        return jTextField9;
+    }
+
+    public void setjTextField9(JTextField jTextField9) {
+        this.jTextField9 = jTextField9;
+    }
+
+    public JRootPane getRootPane() {
+        return rootPane;
+    }
+
+    public void setRootPane(JRootPane rootPane) {
+        this.rootPane = rootPane;
+    }
+
+    public boolean isRootPaneCheckingEnabled() {
+        return rootPaneCheckingEnabled;
+    }
+
+    public void setRootPaneCheckingEnabled(boolean rootPaneCheckingEnabled) {
+        this.rootPaneCheckingEnabled = rootPaneCheckingEnabled;
+    }
+
+    public AccessibleContext getAccessibleContext() {
+        return accessibleContext;
+    }
+
+    public void setAccessibleContext(AccessibleContext accessibleContext) {
+        this.accessibleContext = accessibleContext;
+    }
+
+    
+    
     /**
      * Creates new form frm_AdminPayslip
      */
@@ -132,6 +590,11 @@ public class frm_AdminPayslip extends javax.swing.JFrame {
 
         jFormattedTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jFormattedTextField11.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("₱ "))));
+        jFormattedTextField11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jFormattedTextField11ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jFormattedTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, 300, -1));
 
         jTextField1.setText("Monthly Rate");
@@ -518,6 +981,10 @@ public class frm_AdminPayslip extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jFormattedTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jFormattedTextField11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -554,30 +1021,30 @@ public class frm_AdminPayslip extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JFormattedTextField jFormattedTextField10;
-    private javax.swing.JFormattedTextField jFormattedTextField11;
-    private javax.swing.JFormattedTextField jFormattedTextField12;
-    private javax.swing.JFormattedTextField jFormattedTextField13;
-    private javax.swing.JFormattedTextField jFormattedTextField14;
-    private javax.swing.JFormattedTextField jFormattedTextField15;
-    private javax.swing.JFormattedTextField jFormattedTextField16;
-    private javax.swing.JFormattedTextField jFormattedTextField17;
-    private javax.swing.JFormattedTextField jFormattedTextField18;
-    private javax.swing.JFormattedTextField jFormattedTextField19;
-    private javax.swing.JFormattedTextField jFormattedTextField20;
-    private javax.swing.JFormattedTextField jFormattedTextField21;
-    private javax.swing.JFormattedTextField jFormattedTextField22;
-    private javax.swing.JFormattedTextField jFormattedTextField23;
-    private javax.swing.JFormattedTextField jFormattedTextField24;
-    private javax.swing.JFormattedTextField jFormattedTextField25;
-    private javax.swing.JFormattedTextField jFormattedTextField26;
-    private javax.swing.JFormattedTextField jFormattedTextField27;
-    private javax.swing.JFormattedTextField jFormattedTextField28;
-    private javax.swing.JFormattedTextField jFormattedTextField3;
-    private javax.swing.JFormattedTextField jFormattedTextField7;
-    private javax.swing.JFormattedTextField jFormattedTextField8;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
+    public javax.swing.JButton jButton1;
+    public javax.swing.JFormattedTextField jFormattedTextField10;
+    public javax.swing.JFormattedTextField jFormattedTextField11;
+    public javax.swing.JFormattedTextField jFormattedTextField12;
+    public javax.swing.JFormattedTextField jFormattedTextField13;
+    public javax.swing.JFormattedTextField jFormattedTextField14;
+    public javax.swing.JFormattedTextField jFormattedTextField15;
+    public javax.swing.JFormattedTextField jFormattedTextField16;
+    public javax.swing.JFormattedTextField jFormattedTextField17;
+    public javax.swing.JFormattedTextField jFormattedTextField18;
+    public javax.swing.JFormattedTextField jFormattedTextField19;
+    public javax.swing.JFormattedTextField jFormattedTextField20;
+    public javax.swing.JFormattedTextField jFormattedTextField21;
+    public javax.swing.JFormattedTextField jFormattedTextField22;
+    public javax.swing.JFormattedTextField jFormattedTextField23;
+    public javax.swing.JFormattedTextField jFormattedTextField24;
+    public javax.swing.JFormattedTextField jFormattedTextField25;
+    public javax.swing.JFormattedTextField jFormattedTextField26;
+    public javax.swing.JFormattedTextField jFormattedTextField27;
+    public javax.swing.JFormattedTextField jFormattedTextField28;
+    public javax.swing.JFormattedTextField jFormattedTextField3;
+    public javax.swing.JFormattedTextField jFormattedTextField7;
+    public javax.swing.JFormattedTextField jFormattedTextField8;
+    public javax.swing.JFormattedTextField jFormattedTextField9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
