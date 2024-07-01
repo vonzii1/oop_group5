@@ -43,6 +43,17 @@ public class PayrollController {
             return 0.0;
         }
     }
+    
+    public void generateMonthlyReport() {
+       
+        String report = "Monthly Payroll Report\n======================\n";
+        report += "Total Earnings: " + formatCurrency(calculateEarnings());
+        report += "\nTotal Benefits: " + formatCurrency(calculateBenefits());
+        report += "\nTotal Deductions: " + formatCurrency(calculateDeductions());
+        //report += "\nNet Pay: " + formatCurrency(calculateNetPay());
+
+        JOptionPane.showMessageDialog(view, report, "Monthly Payroll Report", JOptionPane.INFORMATION_MESSAGE);
+    }
 
     private double calculateEarnings() {
         Double monthlyRate = parseDouble(view.getjFormattedTextField11().getText());
@@ -80,6 +91,7 @@ public class PayrollController {
 
     private void setupListeners() {
         
+        this.jButton2 = new Button("Button 2");
         jButton2.addActionListener(e -> generatePayslip());
         view.getContentPane().setLayout(new java.awt.BorderLayout()); // Set the layout manager to BorderLayout
         view.getContentPane().add(jButton2, java.awt.BorderLayout.SOUTH); // Add the button to the bottom of the frame

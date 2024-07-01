@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 //This class is implementing ENCAPSULATION.
-
 public class Employee {
     
     String emp_ID;
@@ -26,25 +25,37 @@ public class Employee {
     public String emp_PagIbigNumber;
     private String emailAddress;
     private String password;
+    private String emp_FullName;
     protected List<Employee> employeeList = new ArrayList<>();
+    private Object DriverManager;
     
-    public Employee(String emp_ID, String emp_DOB, String emp_Address, String emp_PhoneNumber, String emp_Status, String emp_Position, double emp_BasicSalary, String emp_SSSNumber, String emp_PhilHealthNumber, String emp_TINNumber, String emp_PagIbigNumber, String emailAddress, String password) {
-        this.emp_ID = emp_ID;
-        this.emp_DOB = emp_DOB;
-        this.emp_Address = emp_Address;
-        this.emp_PhoneNumber = emp_PhoneNumber;
-        this.emp_Status = emp_Status;
-        this.emp_Position = emp_Position;
-        this.emp_BasicSalary = emp_BasicSalary;
-        this.emp_SSSNumber = emp_SSSNumber;
-        this.emp_PhilHealthNumber = emp_PhilHealthNumber;
-        this.emp_TINNumber = emp_TINNumber;
-        this.emp_PagIbigNumber = emp_PagIbigNumber;
-        this.emailAddress = emailAddress;
-        this.password = password;
-        
+    private int employeeId;
+    private String employeeName;
+
+    /**
+     *
+     * @param employeeId
+     * @param employeeName
+     */
+    public Employee(int employeeId, String employeeName) {
+        this.employeeId = employeeId;
+        this.employeeName = employeeName;
     }
 
+    public int getEmployeeId() {
+        return employeeId;
+    }
+
+    public String getEmployeeName() {
+        return employeeName;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee ID: " + employeeId + ", Name: " + employeeName;
+    }
+    
+    
     Employee() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -169,8 +180,17 @@ public class Employee {
         this.password = password;
     }
 
+    Object getName() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     String getFullName() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
     
 }

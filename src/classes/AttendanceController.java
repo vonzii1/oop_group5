@@ -1,66 +1,91 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package classes;
 
 import frames.frm_EmployeeAttendance;
-import java.awt.Button;
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-
-/**
- *
- * @author User
- */
 public class AttendanceController {
     private frm_EmployeeAttendance employeeAttendance;
-    private Attendance model; // Assuming you have an Attendance model
-    private Button jButton3;
-    private Button jButton5;
-    private Button jButton2;
-    
-    public AttendanceController(frm_EmployeeAttendance view, Attendance model) {
+    private Connection conn;
+
+    public AttendanceController(frm_EmployeeAttendance view) {
         this.employeeAttendance = view;
-        this.model = model;
+        initDBConnection();
         initView();
-    }
-    
-    public void initView() {
-        // Initialize view settings or load model data into view
-        employeeAttendance.setVisible(true);
-    }
-    
-    public void initController() {
-       // employeeAttendance.jButton3.addActionListener(e -> applyOvertime(overtimeHours, overtimeStart, overtimeEnd, reason));
-        employeeAttendance.jButton5.addActionListener(e -> confirmAttendance());
-        // Add more listeners as needed
-    }
-    
-    public void applyOvertime(String overtimeHours, String overtimeStart, String overtimeEnd, String reason) {
-        // Handle overtime application logic
-        JOptionPane.showMessageDialog(employeeAttendance, "Applying for overtime...");
-    }
-    
-    private void confirmAttendance() {
-        // Handle attendance confirmation logic
-        JOptionPane.showMessageDialog(employeeAttendance, "Attendance confirmed...");
+        initController();
     }
 
-    private static class Attendance {
+    AttendanceController() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 
-        public Attendance() {
+    private void initDBConnection() {
+        try {
+            String dbURL = "jdbc:mysql://localhost:3306/payrollsystem_db";
+            String username = "root";
+            String password = "root";
+            conn = DriverManager.getConnection(dbURL, username, password);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error connecting to database: " + e.getMessage());
         }
     }
-    
+
+    public void initView() {
+        employeeAttendance.setVisible(true);
+    }
+
+    public void initController() {
+        employeeAttendance.jButton5.addActionListener(e -> confirmAttendance());
+        employeeAttendance.jButton3.addActionListener(e -> applyOvertime(
+            employeeAttendance.getOvertimeHours(),
+            employeeAttendance.getOvertimeStart(),
+            employeeAttendance.getOvertimeEnd(),
+            employeeAttendance.getReason()));
+    }
+
+    public void applyOvertime(String overtimeHours, String overtimeStart, String overtimeEnd, String reason) {
+        String sql = "INSERT INTO overtime (employee_id, hours, start_time, end_time, reason, status) VALUES (?, ?, ?, ?, ?, 'Pending')";
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, 123); // Placeholder for employee_id
+            statement.setString(2, overtimeHours);
+            statement.setString(3, overtimeStart);
+            statement.setString(4, overtimeEnd);
+            statement.setString(5, reason);
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                JOptionPane.showMessageDialog(employeeAttendance, "Overtime application successful.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(employeeAttendance, "Error applying for overtime: " + e.getMessage());
+        }
+    }
+
+    void confirmAttendance() {
+        String sql = "UPDATE attendance SET status = 'Confirmed' WHERE employee_id = ? AND date = CURDATE()";
+        try (PreparedStatement statement = conn.prepareStatement(sql)) {
+            statement.setInt(1, 123); // Placeholder for employee_id
+            int rowsUpdated = statement.executeUpdate();
+            if (rowsUpdated > 0) {
+                JOptionPane.showMessageDialog(employeeAttendance, "Attendance confirmed successfully.");
+            } else {
+                JOptionPane.showMessageDialog(employeeAttendance, "No attendance record to update for today.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(employeeAttendance, "Error confirming attendance: " + e.getMessage());
+        }
+    }
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(() -> {
             frm_EmployeeAttendance employeeAttendance = new frm_EmployeeAttendance();
-            Attendance model = new Attendance(); // Your model
-            AttendanceController controller = new AttendanceController(employeeAttendance, model);
-            controller.initController(); // Start listening to view events
+            AttendanceController controller = new AttendanceController(employeeAttendance);
         });
     }
-}
 
+    boolean markAttendance(String employeeId) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+}

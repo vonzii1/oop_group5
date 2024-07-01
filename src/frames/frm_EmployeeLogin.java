@@ -4,16 +4,16 @@
  */
 package frames;
 
+
+import classes.EmployeeDAO;
 import java.awt.event.ActionEvent;
 import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 
 public class frm_EmployeeLogin extends javax.swing.JFrame {
 
-    private JLabel messageLabel;
-    private Object loginButton;
+     private EmployeeDAO employeeDAO = new EmployeeDAO();
     
     public frm_EmployeeLogin() {
         initComponents();
@@ -43,6 +43,11 @@ public class frm_EmployeeLogin extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPasswordField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                password(evt);
+            }
+        });
         jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 170, 250, -1));
 
         jButton2.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
@@ -85,7 +90,7 @@ public class frm_EmployeeLogin extends javax.swing.JFrame {
         jTextField3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                name(evt);
             }
         });
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 250, -1));
@@ -103,6 +108,20 @@ public class frm_EmployeeLogin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void handleLogin(java.awt.event.ActionEvent evt) {
+        String username = jTextField3.getText();
+        String password = jPasswordField1.getText();
+
+        if (employeeDAO.login(username, password)) {
+            // Navigate to the main dashboard
+            JOptionPane.showMessageDialog(this, "Login Successful!", "Success", JOptionPane.INFORMATION_MESSAGE);
+            // You can redirect to the main dashboard JFrame here
+        } else {
+            // Show error message
+            JOptionPane.showMessageDialog(this, "Invalid username or password.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     public void actionPerformed(ActionEvent arg0) {
         
@@ -125,15 +144,18 @@ public class frm_EmployeeLogin extends javax.swing.JFrame {
        this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void name(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_name
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_name
+
+    private void password(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_password
+        // TODO add your handling code here:
+    }//GEN-LAST:event_password
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-       
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frm_EmployeeLogin().setVisible(true);
@@ -141,9 +163,6 @@ public class frm_EmployeeLogin extends javax.swing.JFrame {
         });
     }
     
-     public JLabel getMessageLabel() {
-        return messageLabel;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton2;

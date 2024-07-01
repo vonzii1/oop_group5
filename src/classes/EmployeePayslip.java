@@ -1,72 +1,109 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package classes;
 
-/**
- *
- * @author User
- */
+import frames.frm_EmployeeDashboard;
 import frames.frm_EmployeePayslip;
-import java.awt.Button;
-import javax.swing.JOptionPane;
-import org.w3c.dom.Text;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRResultSetDataSource;
+
+import javax.swing.*;
+import java.sql.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class EmployeePayslip {
-    
-    public frm_EmployeePayslip payslipView;
-    public Text jFormattedTextField3;
-    public Text jFormattedTextField6;
-    public Text jFormattedTextField7;
-    public Text jFormattedTextField8;
-    public Text jFormattedTextField9;
-    public Text jFormattedTextField10;
-    public Button jButton1;
-    
 
-    public EmployeePayslip(frm_EmployeePayslip payslipView) {
+    public frm_EmployeePayslip payslipView;
+    private Date startDate;
+    private Date endDate;
+    private SimpleDateFormat sdf = new SimpleDateFormat("MM-dd-yyyy");
+
+    public EmployeePayslip(frm_EmployeePayslip payslipView, Date startDate, Date endDate) {
+        this.startDate = startDate;
+        this.endDate = endDate;
         this.payslipView = payslipView;
         setupListeners();
-    }
-    
-     public void generatePayslip() {
-        // Example of collecting data from the form
-        String payslipNumber = payslipView.jFormattedTextField3.getText().trim();
-        String employeeId = payslipView.jFormattedTextField6.getText().trim();
-        String name = payslipView.jFormattedTextField7.getText().trim();
-        String startDate = payslipView.jFormattedTextField8.getText().trim();
-        String endDate = payslipView.jFormattedTextField9.getText().trim();
-        String department = payslipView.jFormattedTextField10.getText().trim();
-
-        // Validation logic
-        if (payslipNumber.isEmpty() || employeeId.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
-            JOptionPane.showMessageDialog(payslipView, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        // Here you would add the logic to generate the payslip.
-        // This could involve calculations based on the dates provided and employee ID, 
-        // fetching rates and hours worked, etc.
-
-        // For this example, we'll just show a confirmation message.
-        JOptionPane.showMessageDialog(payslipView, "Payslip generated for Employee ID: " + employeeId, "Success", JOptionPane.INFORMATION_MESSAGE);
-
-        // Now you might want to update the view or close it
-        payslipView.dispose();
-        // Open another view or update the current one
-    }
-
-    public void goBack() {
-        // Logic to return to the previous screen
-        payslipView.dispose();
-        // e.g., new frm_MainMenu().setVisible(true);
     }
 
     private void setupListeners() {
         payslipView.jButton1.addActionListener(evt -> goBack());
     }
-}
 
-    // Add methods to handle the business logic for the payslip here
+    public void goBack() {
+        new frm_EmployeeDashboard().setVisible(true);
+        payslipView.dispose();
+    }
 
+    public void generatePayslip() {
+        try {
+            String payslipNumber = payslipView.jFormattedTextField3.getText().trim();
+            String employeeId = payslipView.jFormattedTextField6.getText().trim();
+            String name = payslipView.jFormattedTextField7.getText().trim();
+            String formattedStartDate = sdf.format(startDate);
+            String formattedEndDate = sdf.format(endDate);
+            String department = payslipView.jFormattedTextField10.getText().trim();
+
+            if (payslipNumber.isEmpty() || employeeId.isEmpty() || name.isEmpty() || department.isEmpty()) {
+                JOptionPane.showMessageDialog(payslipView, "All fields are required.", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            generateReport(payslipNumber, employeeId, name, formattedStartDate, formattedEndDate, department);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(payslipView, "Error in generating payslip: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private void generateReport(String payslipNumber, String employeeId, String name, String startDate, String endDate, String department) throws SQLException, JRException {
+        Connection conn = connect();
+        if (conn == null) {
+            JOptionPane.showMessageDialog(payslipView, "Database connection error.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        String query = "SELECT * FROM employee WHERE employeeId = ?";
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        pstmt.setString(1, employeeId);
+        ResultSet rs = pstmt.executeQuery();
+
+        if (!rs.next()) {
+            JOptionPane.showMessageDialog(payslipView, "No employee data found for the given ID.", "Error", JOptionPane.ERROR_MESSAGE);
+            rs.close();
+            pstmt.close();
+            conn.close();
+            return;
+        }
+
+        JRResultSetDataSource dataSource = new JRResultSetDataSource(rs);
+
+        JasperReport jasperReport = JasperCompileManager.compileReport("motorph_payrollreport.jrxml");
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("payslipNumber", payslipNumber);
+        parameters.put("employeeId", employeeId);
+        parameters.put("name", name);
+        parameters.put("startDate", startDate);
+        parameters.put("endDate", endDate);
+        parameters.put("department", department);
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
+
+        JasperExportManager.exportReportToPdfFile(jasperPrint, "motorph_payrollreport_" + employeeId + ".pdf");
+
+        rs.close();
+        pstmt.close();
+        conn.close();
+
+        JOptionPane.showMessageDialog(payslipView, "Report generated successfully.", "Success", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private Connection connect() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/payrollsystem_db";
+            return DriverManager.getConnection(url, "root", "root");
+        } catch (SQLException e) {
+            System.err.println("Database connection error: " + e.getMessage());
+            return null;
+        }
+    }
+
+ }

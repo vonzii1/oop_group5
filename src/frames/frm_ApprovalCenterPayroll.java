@@ -18,6 +18,12 @@ import javax.swing.JTextField;
  */
 public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
 
+    private JLabel jLabel9;
+    private JFormattedTextField jFormattedTextField8;
+    private JFormattedTextField jFormattedTextField9;
+    private JLabel jLabel10;
+   
+
     public JButton getjButton1() {
         return jButton1;
     }
@@ -500,10 +506,6 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
         jFormattedTextField6 = new javax.swing.JFormattedTextField();
         jLabel8 = new javax.swing.JLabel();
         jFormattedTextField7 = new javax.swing.JFormattedTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jFormattedTextField8 = new javax.swing.JFormattedTextField();
-        jLabel10 = new javax.swing.JLabel();
-        jFormattedTextField9 = new javax.swing.JFormattedTextField();
         jLabel11 = new javax.swing.JLabel();
         jFormattedTextField10 = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -551,6 +553,10 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jLabel13 = new javax.swing.JLabel();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -581,22 +587,6 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
         jFormattedTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jFormattedTextField7.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
         jPanel1.add(jFormattedTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 180, -1));
-
-        jLabel9.setText("Start Date:");
-        jLabel9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 100, -1));
-
-        jFormattedTextField8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jFormattedTextField8.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        jPanel1.add(jFormattedTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 180, -1));
-
-        jLabel10.setText("End Date:");
-        jLabel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 100, -1));
-
-        jFormattedTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jFormattedTextField9.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getTimeInstance(java.text.DateFormat.SHORT))));
-        jPanel1.add(jFormattedTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 180, -1));
 
         jLabel11.setText("Department:");
         jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -924,6 +914,20 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 720, -1, -1));
 
+        jLabel12.setText("Start Date:");
+        jLabel12.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 100, -1));
+
+        jDateChooser2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 60, 180, 20));
+
+        jLabel13.setText("End Date:");
+        jLabel13.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, 100, -1));
+
+        jDateChooser1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 90, 180, 20));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 760));
 
         pack();
@@ -1084,6 +1088,8 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JFormattedTextField jFormattedTextField10;
     private javax.swing.JFormattedTextField jFormattedTextField11;
     private javax.swing.JFormattedTextField jFormattedTextField12;
@@ -1106,15 +1112,13 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jFormattedTextField3;
     private javax.swing.JFormattedTextField jFormattedTextField6;
     private javax.swing.JFormattedTextField jFormattedTextField7;
-    private javax.swing.JFormattedTextField jFormattedTextField8;
-    private javax.swing.JFormattedTextField jFormattedTextField9;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -1141,19 +1145,19 @@ public class frm_ApprovalCenterPayroll extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void setjFormattedTextField14(String formatCurrency) {
-        jFormattedTextField26.setValue(new Double(formatCurrency.replace("₱", "").replace(",", "")));
+        jFormattedTextField26.setValue(Double.valueOf(formatCurrency.replace("₱", "").replace(",", "")));
     }
 
     public void setjFormattedTextField26(String formatCurrency) {
-        jFormattedTextField26.setValue(new Double(formatCurrency.replace("₱", "").replace(",", "")));
+        jFormattedTextField26.setValue(Double.valueOf(formatCurrency.replace("₱", "").replace(",", "")));
     }
 
     public void setjFormattedTextField25(String formatCurrency) {
-        jFormattedTextField26.setValue(new Double(formatCurrency.replace("₱", "").replace(",", "")));
+        jFormattedTextField26.setValue(Double.valueOf(formatCurrency.replace("₱", "").replace(",", "")));
     }
 
     public void setjFormattedTextField20(String formatCurrency) {
-        jFormattedTextField26.setValue(new Double(formatCurrency.replace("₱", "").replace(",", "")));
+        jFormattedTextField26.setValue(Double.valueOf(formatCurrency.replace("₱", "").replace(",", "")));
     }
 
     

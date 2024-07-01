@@ -7,9 +7,11 @@ package classes;
 import frames.frm_AdminLogin;
 import frames.frm_EmployeeLogin;
 import frames.frm_RoleLogin;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class RoleLogin {
 
@@ -32,18 +34,25 @@ public class RoleLogin {
     }
 
     private String authenticateAndGetRole(String name, String password) {
-        String filepath = "employee-details.csv"; // Adjust this to the actual file path
-        try (BufferedReader br = new BufferedReader(new FileReader(filepath))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                String[] data = line.split(",");
-                if (data[1].equals(name) && data[2].equals(password)) {
-                    return data[2]; // Return the role if username and password match
-                }
+        String role = "unknown";
+        String url = "jdbc:mysql://localhost:3306/payrollsystem_db"; // Modify this with your actual database URL
+        String user = "root"; // Modify this with your actual database username
+        String pass = "root"; // Modify this with your actual database password
+        String query = "SELECT role FROM users WHERE username = ? AND password = ?";
+        
+
+        try (Connection conn = DriverManager.getConnection(url, user, pass);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, name);
+            pstmt.setString(2, password);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                role = rs.getString("role");
             }
-        } catch (IOException e) {
+        } catch (SQLException e) {
+            System.out.println("Database connection failed: " + e.getMessage());
         }
-        return "unknown"; // Return "unknown" if no match found or in case of exception
+        return role;
     }
 
     public static void main(String[] args) {
@@ -51,60 +60,3 @@ public class RoleLogin {
         loginFrame.setVisible(true);
     }
 }
-
-
-//import frames.frm_AdminLogin;
-//import frames.frm_EmployeeLogin;
-//import frames.frm_RoleLogin;
-//import java.awt.Button;
-//
-///**
-// *
-// * @author User
-// */
-//public class RoleLogin {
-//    
-//    private frm_RoleLogin loginFrame;
-//    
-//    private Button jButton2;
-//    private Button jButton3;
-//    
-//    
-//    public RoleLogin(String admin, String employee){
-//        String role = authenticateAndGetRole(admin, employee);
-//        this.loginFrame = new frm_RoleLogin();
-//        
-//        if ("admin".equalsIgnoreCase(role)) {
-//            // User is an admin
-//            frm_AdminLogin adminLogin = new frm_AdminLogin();
-//            adminLogin.setVisible(true);
-//        } else if ("employee".equalsIgnoreCase(role)) {
-//            // User is an employee
-//            frm_EmployeeLogin employeeLogin = new frm_EmployeeLogin();
-//            employeeLogin.setVisible(true);
-//        } else {
-//            // Role is unknown or authentication failed
-//            System.out.println("Authentication failed or role unknown.");
-//            // Optionally, show an error message or a login failure screen
-//        }
-//    }
-//        
-//    
-//
-//    private String authenticateAndGetRole(String username, String password) {
-//        if (null == username) {
-//            return "unknown";
-//        } else         // Placeholder for actual authentication and role retrieval logic
-//        // This should check the user's credentials and return their role
-//        // For the sake of this example, let's just return a dummy role based on the username
-//        return switch (username) {
-//            case "adminUser" -> "admin";
-//            case "employeeUser" -> "employee";
-//            default -> "unknown";
-//        };
-//    }
-//public static void main(String[] args) {
-//    frm_RoleLogin loginFrame = new frm_RoleLogin();
-//    loginFrame.setVisible(true);
-//}
-//}

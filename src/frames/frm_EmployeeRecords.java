@@ -4,6 +4,8 @@
  */
 package frames;
 
+import javax.swing.JButton;
+
 /**
  *
  * @author User
@@ -547,6 +549,22 @@ public class frm_EmployeeRecords extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    public JButton getAddButton() {
+        return jButton5;
+    }
+
+    public JButton getDeleteButton() {
+        return jButton1;
+    }
+
+    public JButton getUpdateButton() {
+        return jButton4;
+    }
+
+    public JButton getExitButton() {
+        return jButton2;
+    }
+
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        new frm_DeleteEmployee().setVisible(true);
        this.dispose();
@@ -861,4 +879,5 @@ public class frm_EmployeeRecords extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField65;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
 }
